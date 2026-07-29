@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.lab_activity_2"
+    namespace = "com.example.prelimhandson"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.lab_activity_2"
-        minSdk = 32
-        targetSdk = 36
+        applicationId = "com.example.prelimhandson"
+        minSdk = 24
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +37,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
