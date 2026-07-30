@@ -35,8 +35,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ReactiveScreen() {
-    // 'count' and 'name' are STATE. 
-    // rememberSaveable keeps them across recompositions AND rotation.
     var count by rememberSaveable { mutableStateOf(0) }
     var name by rememberSaveable { mutableStateOf("") }
 
@@ -47,7 +45,6 @@ fun ReactiveScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Part B: Greeting that reacts as you type
         Text(
             text = if (name.isBlank()) "Hello, stranger!"
             else "Hello, $name!",
@@ -57,12 +54,11 @@ fun ReactiveScreen() {
         Spacer(Modifier.height(16.dp))
         OutlinedTextField(
             value = name,
-            onValueChange = { name = it }, // WRITE updates the state
+            onValueChange = { name = it },
             label = { Text("Enter your name") }
         )
         Spacer(Modifier.height(32.dp))
 
-        // Part D: Hoisted Counter Controls (State Hoisting)
         CounterControls(
             count = count,
             onIncrement = { count++ },
@@ -72,11 +68,10 @@ fun ReactiveScreen() {
     }
 }
 
-// Part D: Stateless counter component (State Hoisting)
 @Composable
 fun CounterControls(
-    count: Int, // value flows DOWN
-    onIncrement: () -> Unit, // events flow UP
+    count: Int,
+    onIncrement: () -> Unit,
     onDecrement: () -> Unit,
     onReset: () -> Unit
 ) {
